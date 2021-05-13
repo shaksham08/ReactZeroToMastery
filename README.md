@@ -1,3 +1,5 @@
+## For more detailed explanation [Click Here](more_Details/README.md)
+
 ## Table of Content
 
 - [Birth Of React](#BirthOfReact)
@@ -7,6 +9,8 @@
 - [React Class based components](#ReactClass)
 - [JSX](#JSX)
 - [State](#State)
+- [React_Class_Based_Example](#React_Class_Based_Example)
+- [Life Cycle Methods](#LifeCycleMethods)
 
 ## BirthOfReact
 
@@ -390,3 +394,77 @@ export default App;
 - Using Single Page Applications we dont need to request backend to get the html css or js but rather we just need to do request to get some data(which is generaly formatted is `json` file type)
 
 - Now that data can be used to show on the page using React(JS)
+
+## LifeCycleMethods
+
+Lifecycle methods are some methods in javascript which helps us to perform some task at some particular moment.
+
+Like once the component gets mounted or loaded first time we want to do some api call to get some data then this is the best way to do. We can use `componentDidMount` function provided by react component.
+
+Here we wait for our component to mount and once its mounted then only we fetch the data from the api.
+
+```js
+ componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((res) => res.json())
+      .then((res) => this.setState({ monsters: res }));
+  }
+```
+
+## PureReactinVanillaJs
+
+Here in below code we have used `react` library to render some `html` on the page.
+
+This show us that `react` is just it help us to build the views and manage figure our what is the right thing in our view we need to update.
+
+Here in web page we are using `React Dom` to render those to DOM , in native mobile app developement we use `react native` to show these changes.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pure React Application</title>
+  </head>
+  <body>
+    <div id="root">React Not Rendered First</div>
+    <!-- React is just Api -->
+    <!-- React is just an engine  -->
+    <script src="https://unpkg.com/react@16.8.6/umd/react.development.js"></script>
+    <!-- It uses rect dom package to render things to DOM -->
+    <script src="https://unpkg.com/react-dom@16.8.6/umd/react-dom.development.js"></script>
+    <script>
+      const Person = (props) => {
+        return React.createElement("div", {}, [
+          React.createElement("h1", {}, props.name),
+          React.createElement("p", {}, props.occupation),
+        ]);
+      };
+
+      const App = () => {
+        return React.createElement("div", { class: "Card-list" }, [
+          React.createElement("h1", {}, [
+            "React is Rendered",
+            React.createElement(Person, {
+              name: "Shaksham",
+              occupation: "devloper",
+            }),
+            React.createElement(Person, { name: "John", occupation: "Farmer" }),
+            React.createElement(Person, {
+              name: "Mike",
+              occupation: "Tester",
+            }),
+          ]),
+        ]);
+      };
+
+      ReactDOM.render(
+        React.createElement(App),
+        document.getElementById("root")
+      );
+    </script>
+  </body>
+</html>
+```
