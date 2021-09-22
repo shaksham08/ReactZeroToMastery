@@ -6,9 +6,12 @@
 - [React Basics](#ReactBasics)
 - [Folder Structure](#FolderStructure)
 - [AvailableScripts](#AvailableScripts)
+- [JS Module Systems](#Javascript_module_Systems)
 - [React Class based components](#ReactClass)
 - [JSX](#JSX)
+- [Babel](#Babel)
 - [State](#State)
+- [Create React App](#Create_React_App)
 - [React_Class_Based_Example](#React_Class_Based_Example)
 - [Life Cycle Methods](#LifeCycleMethods)
 
@@ -108,6 +111,34 @@ React Concepts :-
 - Here the `package.json` file keep track of all the configurations and the dependencies/library to be installed for the project.
 
 - Babel make sure that our code can run on any broswer.
+
+
+## Project Directory
+
+```
+/ProjectDirectory
+    /src  -> Folder WHere we put all the souce code we write
+    /public -> Folder that stores static files like images or HTML file that never changes
+    /node_modules -> Folder that contains all of our project dependencies
+    package.json -> Records our project dependencies and configure our project
+  ge-lock.json -> Records the exact version of Package that we install 
+```
+
+## Javascript_module_Systems 
+
+1. Common Js  
+    - [Link1](https://jscomplete.com/learn/node-beyond-basics/requiring-modules)
+    - [Link2](https://www.freecodecamp.org/news/requiring-modules-in-node-js-everything-you-need-to-know-e7fbd119be8/)
+2. ES6
+    - [Link1](https://medium.com/the-node-js-collection/an-update-on-es6-modules-in-node-js-42c958b890c)
+
+
+## Difference between React and  ReactDOM
+
+- React library know how to work with components.
+- called a "reconciler"
+- While ReactDOM knows how to take instructions on what we want to show and turn it into HTML
+- Called a "renderer"
 
 ## AvailableScripts
 
@@ -266,6 +297,48 @@ ReactDOM.render(<MyComponent />, document.getElementById("root"));
 - Since this is a JS there are few changes , here we dont use `class` keyword but we use `className` to assign some Css class (this is because js dont get confused between js class keyword and css class keyword)
 - We can use js inside jsx anywhere by just using a `{}` and writing our js expression inside that braces.
 
+
+1. Tell React to create a normal HTML element eg. div,hr etc
+2. Tell recact to some other component.
+
+React checks if in JSX tag it is a normal HTML DOM element then it shows on the screen, and if it not a standard DOM element then it will call the component function and it will check for the returned JSX.
+
+
+## Babel
+
+
+**[Babel](https://babeljs.io/)** converts this JSX into the normal Javascript functions.
+
+- Its not HTML 
+- Broswer dont understand JSX
+- But this is almost same as HTML
+
+
+## Babel Playgroundd
+
+- [BabelPlayground](https://babeljs.io/repl)
+
+```js
+function test(){
+  return <h1 test="check"><span>Hello </span></h1>
+}
+```
+
+This gets converted to normal js funtions
+
+```js   
+function test() {
+  return /*#__PURE__*/ React.createElement(
+    "h1",
+    {
+      test: "check"
+    },
+    /*#__PURE__*/ React.createElement("span", null, "Hello ")
+  );
+}
+```
+
+JSX helps us to write simple syntax to make these complex function calls.
 ## State
 
 - The state is an instance of React Component Class can be defined as an object of a set of observable properties that control the behavior of the component. In other words, the State of a component is an object that holds some information that may change over the lifetime of the component.
@@ -273,6 +346,14 @@ ReactDOM.render(<MyComponent />, document.getElementById("root"));
 - We never modify state directly i.e we only update state using `setState` function. This is because state change needs to render the component so manually doing this would not re render.
 - Changing state calls the render function again.
 
+- state is used to keep track of some data and then update the content which is using that data.
+
+
+## Create_React_App
+
+- `npx create-react-app appname` - this command is used to create a react application with all the preconfiguration.
+- Behind the sence there are three library that are working **webbpack** , **Babel** and **DevServer**
+- These libraries also require some other librires to work in behind.
 # React_Class_Based_Example
 
 ```js
@@ -395,6 +476,71 @@ export default App;
 
 - Now that data can be used to show on the page using React(JS)
 
+
+# Communicating_With_Props
+
+Many time we may have single parent component and which has many child components.
+
+- Props system is basically system for passing data from a parent component to a child component.
+- The goal is to customize the child component.
+- The child cannot pass any data to the parent component.
+
+### Parent Component
+
+```js
+import React from "react";
+import ReactDOM from "react-dom";
+import faker from "faker";
+import CommentDetail from "./CommentDetail";
+
+if (module.hot) {
+  module.hot.accept();
+}
+
+const App = () => {
+  return (
+    <div className="ui container comments">
+      <CommentDetail author="Sam" timeAgo="Today at 4:45PM" />
+      <CommentDetail author="Alex" timeAgo="Today at 2:00AM" />
+      <CommentDetail author="Jane" timeAgo="Yesterday at 5:00PM" />
+    </div>
+  );
+};
+
+
+ReactDOM.render(<App />, document.querySelector("#root"));
+```
+
+### Child Component
+
+```js 
+import React from "react";
+import faker from "faker";
+
+const CommentDetail = (props) => {
+  return (
+    <div className="comment">
+      <a href="/" className="avatar">
+        <img alt="avatar" src={faker.image.image()} />
+      </a>
+      <div className="content">
+        <a href="/" className="author">
+          {props.author}
+        </a>
+        <div className="metadata">
+          <span className="date">{props.timeAgo}</span>
+        </div>
+        <div className="text">Nice blog post!</div>
+      </div>
+    </div>
+  );
+};
+
+export default CommentDetail;
+```
+
+
+
 ## LifeCycleMethods
 
 Lifecycle methods are some methods in javascript which helps us to perform some task at some particular moment.
@@ -410,6 +556,10 @@ Here we wait for our component to mount and once its mounted then only we fetch 
       .then((res) => this.setState({ monsters: res }));
   }
 ```
+
+Note:- **Here the setState function is asynchronous so it will take some time to update the state**
+
+There are more lifecycle methods.
 
 ## PureReactinVanillaJs
 
