@@ -477,6 +477,24 @@ export default App;
 - Now that data can be used to show on the page using React(JS)
 
 
+### How_React_Can_Be_Used
+
+THe react can be used in functional component or class components
+
+## class Components
+
+- can produce jsx
+- can use the lifecycle methods to run code at specific point in time
+- can use the state system to update content on the screen
+
+## Functional Components
+
+- can produce JSX
+- NOw functional compoennts can also make use of `HOOKS SYSTEM` to use lifecycle methods and state system
+
+
+NOTE:- SOME APPLICATION USES BOTH CLASS BASED AND FUNCTIONAL BASED COMPONENTS 
+
 # Communicating_With_Props
 
 Many time we may have single parent component and which has many child components.
