@@ -578,10 +578,8 @@ Here we wait for our component to mount and once its mounted then only we fetch 
 Note:- **Here the setState function is asynchronous so it will take some time to update the state**
 
 
-![Diagram](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+![Diagram](./lifecyclemethod.png)
 
-<iframe src="https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/" name="targetframe" allowTransparency="true" scrolling="no" frameborder="0" >
-  </iframe>
 
 There are more lifecycle methods.
 
