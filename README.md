@@ -577,6 +577,7 @@ Here we wait for our component to mount and once its mounted then only we fetch 
 
 Note:- **Here the setState function is asynchronous so it will take some time to update the state**
 
+[Diagram Link](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 
 ![Diagram](./lifecyclemethod.png)
 
