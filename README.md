@@ -2,18 +2,21 @@
 
 ## Table of Content
 
-- [Birth Of React](#BirthOfReact)
-- [React Basics](#ReactBasics)
-- [Folder Structure](#FolderStructure)
-- [AvailableScripts](#AvailableScripts)
-- [JS Module Systems](#Javascript_module_Systems)
-- [React Class based components](#ReactClass)
-- [JSX](#JSX)
-- [Babel](#Babel)
-- [State](#State)
-- [Create React App](#Create_React_App)
-- [React_Class_Based_Example](#React_Class_Based_Example)
-- [Life Cycle Methods](#LifeCycleMethods)
+1. [Birth Of React](#BirthOfReact)
+2. [React Basics](#ReactBasics)
+3. [Folder Structure](#FolderStructure)
+4. [AvailableScripts](#AvailableScripts)
+5. [JS Module Systems](#Javascript_module_Systems)
+6. [React Class based components](#ReactClass)
+7. [JSX](#JSX)
+8. [Babel](#Babel)
+9. [State](#State)
+10. [Create React App](#Create_React_App)
+11. [React Class Based Example](#React_Class_Based_Example)
+12. [Life Cycle Methods](#LifeCycleMethods)
+13. [PureReactinVanillaJs](#PureReactinVanillaJs)
+14. [Using Refs for DOM access](#Using_Refs_for_DOM_access)
+15. [React Hook System](#React_Hook_System)
 
 ## BirthOfReact
 
@@ -641,3 +644,75 @@ Here in web page we are using `React Dom` to render those to DOM , in native mob
   </body>
 </html>
 ```
+## Using_Refs_for_DOM_access
+
+```js
+import React from 'react';
+
+class ImageCard extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { spans: 0 };
+
+    this.imageRef = React.createRef();
+  }
+
+  componentDidMount() {
+    this.imageRef.current.addEventListener('load', this.setSpans);
+  }
+
+  setSpans = () => {
+    const height = this.imageRef.current.clientHeight;
+
+    const spans = Math.ceil(height / 10);
+
+    this.setState({ spans });
+  };
+
+  render() {
+    const { description, urls } = this.props.image;
+
+    return (
+      <div style={{ gridRowEnd: `span ${this.state.spans}` }}>
+        <img ref={this.imageRef} alt={description} src={urls.regular} />
+      </div>
+    );
+  }
+}
+
+export default ImageCard;
+```
+
+Above code shows some example of how react refs work.
+
+Refs are used to get access to single DOM element.
+
+
+## React_Hook_System
+
+Hooks are the way to write reusable code , instead of more classic techniques like inheritence
+
+Use lifecycle methods, states and other class based funcioanlity in functional component in react.
+
+  1. **useState** -> function that lets use state in the functional component
+  2. **useEffect** -> function that lets use something like lifecycle methods in functional components
+  3. **useRef** -> function that lets you create 'ref' in a functional component.
+
+Some primitive Hooks
+
+1. useState
+2. useEffect
+3. useContext
+4. useReducer
+5. useCallback
+6. useMemo
+7. useRef
+8. useImperativeHandle
+9. useLayoutEffect
+10. useDebugValue
+
+
+Note:- ***We can also create our own custom hooks which depends on these above hooks***
+
+
