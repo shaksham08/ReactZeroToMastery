@@ -3,20 +3,21 @@
 ## Table of Content
 
 1. [Birth Of React](#BirthOfReact)
-2. [React Basics](#ReactBasics)
-3. [Folder Structure](#FolderStructure)
-4. [AvailableScripts](#AvailableScripts)
-5. [JS Module Systems](#Javascript_module_Systems)
-6. [React Class based components](#ReactClass)
-7. [JSX](#JSX)
-8. [Babel](#Babel)
-9. [State](#State)
-10. [Create React App](#Create_React_App)
-11. [React Class Based Example](#React_Class_Based_Example)
-12. [Life Cycle Methods](#LifeCycleMethods)
-13. [PureReactinVanillaJs](#PureReactinVanillaJs)
-14. [Using Refs for DOM access](#Using_Refs_for_DOM_access)
-15. [React Hook System](#React_Hook_System)
+2. [What is React](#WhatIsReact)
+3. [React Basics](#ReactBasics)
+4. [Folder Structure](#FolderStructure)
+5. [AvailableScripts](#AvailableScripts)
+6. [JS Module Systems](#Javascript_module_Systems)
+7. [React Class based components](#ReactClass)
+8. [JSX](#JSX)
+9. [Babel](#Babel)
+10. [State](#State)
+11. [Create React App](#Create_React_App)
+12. [React Class Based Example](#React_Class_Based_Example)
+13. [Life Cycle Methods](#LifeCycleMethods)
+14. [PureReactinVanillaJs](#PureReactinVanillaJs)
+15. [Using Refs for DOM access](#Using_Refs_for_DOM_access)
+16. [React Hook System](#React_Hook_System)
 
 ## BirthOfReact
 
@@ -81,6 +82,33 @@ React Concepts :-
   - It dosent assume our technology Stack as it works with everything.
   - So Now react can be used everywhere not only in WEB eg. React Native , React 360 , Electron and React Desktop etc
   - Same code can be used Everywhere and the crossplatform applications became popular with React
+
+## WhatIsReact
+
+React js JS library to build User interface.
+
+THis website feels like mobile app with smooth transition and need not to load a new page everytime so it becomes more reactive.
+
+We break this request and response cycle which we do everytime so we make use of JS to change something in DOM and we need not to do a new request to get new page everytime.
+
+It is a client side js library
+
+It helps in building modern,reactive user interface for the web.
+
+Building small components which can be reused again with different data/information.
+
+Declarative,component focused approach.
+
+**React can be used to control parts of the HTML pages or enitre pages. -> this is widget approach on a multi page application.Some pages are still rendered on and served by a backend server**
+
+**React can also be used to control the entire frontend of the web application.(even switching pages) -> SIngle Page application approach. Server only sends one HTML page,thereafter React takes over and controls the UI.**
+
+Note:- **React is a lean and focused component based UI library.Certain features (e.g routing are added via community packages)**
+
+**Angular** -> complete component based UI framework,packages with features. Uses typescript. Can be overkill for smaller projects.
+
+**Vue** -> Component based UI library framework,includes most core features. A bit less popular than react and angular.(mix feature of react and angular)
+
 
 ## ReactBasics
 
@@ -714,5 +742,9 @@ Some primitive Hooks
 
 
 Note:- ***We can also create our own custom hooks which depends on these above hooks***
+
+With class based components changing multiple state is very easy but with hooks its not easy as we need to call more than one time.
+
+
 
 
