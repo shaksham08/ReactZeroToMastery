@@ -2,22 +2,39 @@
 
 ## Table of Content
 
-1. [Birth Of React](#BirthOfReact)
-2. [What is React](#WhatIsReact)
-3. [React Basics](#ReactBasics)
-4. [Folder Structure](#FolderStructure)
-5. [AvailableScripts](#AvailableScripts)
-6. [JS Module Systems](#Javascript_module_Systems)
-7. [React Class based components](#ReactClass)
-8. [JSX](#JSX)
-9. [Babel](#Babel)
-10. [State](#State)
-11. [Create React App](#Create_React_App)
-12. [React Class Based Example](#React_Class_Based_Example)
-13. [Life Cycle Methods](#LifeCycleMethods)
-14. [PureReactinVanillaJs](#PureReactinVanillaJs)
-15. [Using Refs for DOM access](#Using_Refs_for_DOM_access)
-16. [React Hook System](#React_Hook_System)
+ [Birth Of React](#BirthOfReact) 
+ 
+ [What is React](#WhatIsReact) 
+ 
+ [React Basics](#ReactBasics)
+ 
+ [Folder Structure](#FolderStructure) 
+ 
+ [AvailableScripts](#AvailableScripts) 
+ 
+ [JS Module Systems](#Javascript_module_Systems) 
+ 
+ [components](#Components) 
+ 
+ [React Class based components](#ReactClass)
+ 
+ [JSX](#JSX)
+
+ [Babel](#Babel)
+
+ [State](#State)
+
+ [Create React App](#Create_React_App)
+ 
+ [React Class Based Example](#React_Class_Based_Example)
+
+ [Life Cycle Methods](#LifeCycleMethods)
+
+ [PureReactinVanillaJs](#PureReactinVanillaJs)
+
+ [Using Refs for DOM access](#Using_Refs_for_DOM_access)
+
+ [React Hook System](#React_Hook_System)
 
 ## BirthOfReact
 
@@ -109,6 +126,8 @@ Note:- **React is a lean and focused component based UI library.Certain features
 
 **Vue** -> Component based UI library framework,includes most core features. A bit less popular than react and angular.(mix feature of react and angular)
 
+React helps us to focus on our buisness logic and rather than error.
+
 
 ## ReactBasics
 
@@ -152,7 +171,7 @@ Note:- **React is a lean and focused component based UI library.Certain features
     /public -> Folder that stores static files like images or HTML file that never changes
     /node_modules -> Folder that contains all of our project dependencies
     package.json -> Records our project dependencies and configure our project
-  ge-lock.json -> Records the exact version of Package that we install 
+    package-lock.json -> Records the exact version of Package that we install 
 ```
 
 ## Javascript_module_Systems 
@@ -164,7 +183,9 @@ Note:- **React is a lean and focused component based UI library.Certain features
     - [Link1](https://medium.com/the-node-js-collection/an-update-on-es6-modules-in-node-js-42c958b890c)
 
 
-## Difference between React and  ReactDOM
+
+
+## Difference between React and ReactDOM
 
 - React library know how to work with components.
 - called a "reconciler"
@@ -284,6 +305,27 @@ Read instructions below for using assets from JavaScript and HTML.
 
 You can, however, create more top-level directories.<br>
 They will not be included in the production build so you can use them for things like documentation.
+
+
+
+## Components
+
+Components are just combination of CSS , HTML and JS.
+
+- Reusability
+- Seperation of concern
+
+Split bug chunks into smaller ones
+
+React uses declarative approach
+
+- we need not to tell react to create a element and add somewhere.
+- This is done by react we do not add dom instructions we just give idea where and when to use which component.
+
+
+index.js is the file which runs first.
+
+
 
 ## React Class
 
